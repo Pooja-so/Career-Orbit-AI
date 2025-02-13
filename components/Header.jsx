@@ -1,13 +1,15 @@
+// Header is rendered in layout.js
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image"; // Image from nextjs optimizes image and then render it on client-side
 import Link from "next/link";
+import { Button } from "./ui/button";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
 } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+
 import {
   ChevronDown,
   FileText,
@@ -23,7 +25,7 @@ const Header = () => {
       {/* removed container from nav */}
       <nav className="mx-5 py-2 h-16 flex items-center justify-between">
         {/* 1. logo */}
-        <div>
+        <div className="flex">
           <Image
             src="/logo.png"
             alt="Career Orbit AI logo"
@@ -31,16 +33,22 @@ const Header = () => {
             height={30}
             className="h-20 py-1 w-auto object-contain"
           />
+          <div className="self-center px-3 text-sm font-bold md:text-lg lg:text-xl xl:text-2xl shade-logo">
+            <p>Career Orbit AI</p>
+          </div>
         </div>
 
         {/*2. Displayed only for the signed in user */}
-        <div className="flex items-center space-x-2 md:space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4 ">
           <SignedIn>
             {/* 2.1 Dashborad button for Industry insights */}
             <Link href={"/dashboard"}>
               <Button variant="outline">
                 <LayoutDashboard className="h-4 w-4" />
-                <span className="hidden md:block"> Industry Insights</span>
+                <span className="hidden md:block text-base">
+                  {" "}
+                  Industry Insights
+                </span>
               </Button>
             </Link>
             {/* 2.2 Growth tools */}
@@ -48,7 +56,9 @@ const Header = () => {
               <DropdownMenuTrigger asChild>
                 <Button>
                   <StarsIcon className="h-4 w-4" />
-                  <span className="hidden md:block">Growth Tools</span>
+                  <span className="hidden md:block text-base">
+                    Growth Tools
+                  </span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -56,7 +66,7 @@ const Header = () => {
                 <DropdownMenuItem>
                   <Link href={"/resume"} className="flex items-center gap-2">
                     <FileText className="h-4 w-4" />
-                    <span>Build Resume</span>
+                    <span className="text-base">Build Resume</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
@@ -65,13 +75,13 @@ const Header = () => {
                     className="flex items-center gap-2"
                   >
                     <PenBox h-4 w-4 />
-                    <span>Cover Letter</span>
+                    <span className="text-base">Cover Letter</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href={"/interview"} className="flex items-center gap-2">
                     <GraduationCap h-4 w-4 />
-                    <span>Interview Preparation</span>
+                    <span className="text-base">Interview Preparation</span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -93,7 +103,7 @@ const Header = () => {
                   userPreviewMainIdentifier: "font-semibold",
                 },
               }}
-              afterSignOutUrl="/"  // after signed out go to home page
+              afterSignOutUrl="/" // after signed out go to home page
             />
           </SignedIn>
         </div>

@@ -14,9 +14,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider appearance={{
-      baseTheme:dark
-    }}>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className}`}>
           <ThemeProvider
@@ -31,7 +33,7 @@ export default function RootLayout({ children }) {
             </main>
             <footer className="b-muted/50 py-12">
               <div className="container mx-auto px-4 text-center text-gray-200">
-                <p>Made by Pooja Singh</p>
+                <p className="text-base md:text-lg lg:text-xl xl:text-2xl tracking-normal">Made by Pooja Singh</p>
               </div>
             </footer>
           </ThemeProvider>
