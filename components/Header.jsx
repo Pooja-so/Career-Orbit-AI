@@ -18,8 +18,11 @@ import {
   PenBox,
   StarsIcon,
 } from "lucide-react"; // luicide-react is avaialable in shadcn
+import { checkUser } from "@/lib/checkUser";
 
-const Header = () => {
+const Header = async() => {
+  await checkUser(); /* Everytime, when we land on our application, we check if the user is 
+  stored in the db and return it else create it then return the created one*/
   return (
     <header className="fixed top-0 w-full py-2 border-b bg-background/80 backdrop-blur-md z-50 ">
       {/* removed container from nav */}
