@@ -1,6 +1,12 @@
+import { industries } from "@/data/industries";
+
 const OnboardingPage = () => {
   // Check if user is already onboarded
-  return <div>OnboardingPage</div>;
+  return (
+    <main>
+      <OnboardingForm industries={industries} />
+    </main>
+  );
 };
 
 export default OnboardingPage;
