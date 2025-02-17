@@ -1,7 +1,7 @@
-// _components: ignore everything insie this folder i.e. it will be included in route
-
-const IndustryInsightsPage = () => {
-  return <div>IndustryInsightsPage</div>;
+// import { getUserOnBoardingStatus } from "@/actions/user";
+const DashboardPage = async () => {
+  // const { isOnboarded } = await getUserOnBoardingStatus();
+  return <div>Dashboard</div>;
 };
 
-export default IndustryInsightsPage;
+export default DashboardPage;

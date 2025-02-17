@@ -39,7 +39,7 @@ export async function updateUser(data) {
           industryInsight = await transaction.industryInsight.create({
             data: {
               industry: data.industry,
-              salarayRanges: [],
+              salaryRanges: [],
               growthRate: 0,
               demandLevel: "Medium",
               topSkills: [],
@@ -70,7 +70,7 @@ export async function updateUser(data) {
       }
     );
 
-    return result.user;
+    return { ...result, success: true };
   } catch (error) {
     console.error("Error updating user and industry: ", error.message);
     throw new Error("Failed to update profile!");
@@ -105,6 +105,6 @@ export async function getUserOnBoardingStatus() {
     };
   } catch (error) {
     console.error("Error checking onboarding status!");
-    throw new Error("Failed to check onboarding status!");
+    throw new Error("Failed to check onboarding status!", error.message);
   }
 }
