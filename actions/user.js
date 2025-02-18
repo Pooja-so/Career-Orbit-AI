@@ -5,6 +5,7 @@
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
+import { generateAIInsights } from "./dashboard";
 
 // 1. ------------- Update User function ----------------------
 // --> data in below function is coming from the onboarding Form data
@@ -36,17 +37,13 @@ export async function updateUser(data) {
         });
         // 2. if industry doesn't exist, create it with default values
         if (!industryInsight) {
-          industryInsight = await transaction.industryInsight.create({
+          const insights = await generateAIInsights(data.industry);
+
+          industryInsight = await db.industryInsight.create({
             data: {
               industry: data.industry,
-              salaryRanges: [],
-              growthRate: 0,
-              demandLevel: "Medium",
-              topSkills: [],
-              marketOutlook: "Neutral",
-              keyTrends: [],
-              recommendedSkills: [],
-              nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 1 week
+              ...insights,
+              nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
             },
           });
         }
@@ -72,7 +69,7 @@ export async function updateUser(data) {
 
     return { ...result, success: true };
   } catch (error) {
-    console.error("Error updating user and industry: ", error.message);
+    console.log("Error updating user and industry: ", error.message);
     throw new Error("Failed to update profile!");
   }
 }
@@ -104,7 +101,7 @@ export async function getUserOnBoardingStatus() {
       isOnboarded: !!user?.industry,
     };
   } catch (error) {
-    console.error("Error checking onboarding status!");
-    throw new Error("Failed to check onboarding status!", error.message);
+    console.log("Error checking onboarding status!", error.message);
+    throw new Error("Failed to check onboarding status!");
   }
 }
