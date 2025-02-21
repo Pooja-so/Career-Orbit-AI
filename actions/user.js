@@ -7,7 +7,7 @@ import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { generateAIInsights } from "./dashboard";
 
-// 1. ------------- Update User function ----------------------
+/* 1) ------------- Update User function ---------------------- */
 // --> data in below function is coming from the onboarding Form data
 export async function updateUser(data) {
   // 1. Before updating user, check if the user is logged in..
@@ -74,7 +74,7 @@ export async function updateUser(data) {
   }
 }
 
-// 2. ------------------ Fetching OnBorading data ---------------
+/* 2) ------------------ Fetching OnBorading data ---------------*/
 export async function getUserOnBoardingStatus() {
   // 1. Before updating user, check if the user is logged in..
   const { userId } = await auth();

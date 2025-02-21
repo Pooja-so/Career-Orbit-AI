@@ -35,7 +35,8 @@ export default function RootLayout({ children }) {
               {children} {/* children represents the page.js at root level */}
             </main>
             {/* 3. Toast */}
-            <Toaster rich /> {/* Toast configuration: For displaying toast  */}
+            <Toaster richColors/>
+            {/* Toast configuration: For displaying toast  */}
             {/* 4. Footer */}
             <footer className="b-muted/50 py-12">
               <div className="container mx-auto px-4 text-center text-gray-200">
