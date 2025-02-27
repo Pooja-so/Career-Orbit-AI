@@ -49,7 +49,6 @@ const Header = async() => {
               <Button variant="outline">
                 <LayoutDashboard className="h-4 w-4" />
                 <span className="hidden md:block text-base">
-                  {" "}
                   Industry Insights
                 </span>
               </Button>
@@ -72,7 +71,8 @@ const Header = async() => {
                     <span className="text-base">Build Resume</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                {/* PENDING: --------------- COVER LETTER ----------------- */}
+                {/* <DropdownMenuItem>
                   <Link
                     href={"/ai-cover-letter"}
                     className="flex items-center gap-2"
@@ -80,7 +80,7 @@ const Header = async() => {
                     <PenBox h-4 w-4 />
                     <span className="text-base">Cover Letter</span>
                   </Link>
-                </DropdownMenuItem>
+                </DropdownMenuItem> */}
                 <DropdownMenuItem>
                   <Link href={"/interview"} className="flex items-center gap-2">
                     <GraduationCap h-4 w-4 />
