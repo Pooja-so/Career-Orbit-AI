@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { RingLoader } from "react-spinners";
+import { BarLoader} from "react-spinners";
 
 export default function DashboardLayout({ children }) {
   return (
@@ -8,7 +8,7 @@ export default function DashboardLayout({ children }) {
         <h1 className="text-6xl font-bold gradient-title">Industry Insights</h1>
       </div>
       <Suspense
-        fallback={<RingLoader className="mt-4" width={"100%"} color="gray" />}
+        fallback={<BarLoader className="mt-4" width={"100%"} color="gray" />}
       >
         {children}
       </Suspense>

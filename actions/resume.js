@@ -52,10 +52,6 @@ export async function getResume() {
     where: {
       clerkUserId: userId,
     },
-    select: {
-      industry: true,
-      skills: true,
-    },
   });
   if (!user) throw new Error("User not found");
 
@@ -76,9 +72,8 @@ export async function improveWithAI({ current, type }) {
     where: {
       clerkUserId: userId,
     },
-    select: {
-      industry: true,
-      skills: true,
+    include: {
+      industryInsight: true,
     },
   });
   if (!user) throw new Error("User not found");

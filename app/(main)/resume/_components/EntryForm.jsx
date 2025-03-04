@@ -27,7 +27,7 @@ const formatDisplayDate = (dateString) => {
   return format(date, "MMM yyyy");
 };
 
-const EntryForm = () => {
+const EntryForm = ({type, entries, onChange}) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const {
@@ -100,7 +100,7 @@ const EntryForm = () => {
     }
     await improvedWithAIFunction({
       current: description,
-      type: type.tolowerCase(), // 'experience', 'education', or 'project'
+      type: type.toLowerCase(), // 'experience', 'education', or 'project'
       //  organizationName: organization
     });
   };
@@ -224,7 +224,7 @@ const EntryForm = () => {
               {/* 2.6 Description field*/}
               <div className="space-y-2">
                 <Textarea
-                  placeholder={`Description of your ${type.tolowerCase()}`}
+                  placeholder={`Description of your ${type.toLowerCase()}`}
                   className="h-32"
                   {...register("description")}
                   error={errors.description}

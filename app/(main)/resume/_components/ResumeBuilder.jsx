@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import useFetch from "@/hooks/useFetch";
 import { useForm, Controller } from "react-hook-form";
@@ -8,7 +9,7 @@ import { resumeSchema } from "@/app/lib/schema";
 import { saveResume } from "@/actions/resume";
 import { entriesToMarkdown } from "@/app/lib/helper";
 import MDEditor from "@uiw/react-md-editor";
-import { html2pdf } from "html2pdf.js/dist/html2pdf.min.js";
+// import { html2pdf } from "html2pdf.js/dist/html2pdf.min.js";
 
 import EntryForm from "./EntryForm";
 import { Button } from "@/components/ui/button";
@@ -25,6 +26,9 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 
+// import dynamic from "next/dynamic";
+// const html2pdf = dynamic(() => import("html2pdf.js"), { ssr: false });
+
 const ResumeBuilder = ({ initialContent }) => {
   const [activeTab, setActiveTab] = useState("edit");
   const [previewContent, setPreviewContent] = useState(initialContent);
@@ -35,7 +39,7 @@ const ResumeBuilder = ({ initialContent }) => {
   const {
     control, // Control and manipulate the form
     register,
-    handleSubmit, // Submit the form
+    // handleSubmit, // Submit the form
     watch, // Watch one or multiple form fields
     formState: { errors }, // Contains error related to the form fields
   } = useForm({
@@ -119,6 +123,7 @@ const ResumeBuilder = ({ initialContent }) => {
     setIsGenerating(true);
     try {
       const element = document.getElementById("resume-pdf");
+      const html2pdf = (await import("html2pdf.js")).default;
       const opt = {
         margin: [15, 15],
         filename: "resume.pdf",
@@ -309,7 +314,28 @@ const ResumeBuilder = ({ initialContent }) => {
               )}
             </div>
 
-            {/* 2.1.4   Experience */}
+            {/* 2.1.4 Education */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-medium">Education</h3>
+              <Controller
+                name="education"
+                control={control}
+                render={({ field }) => (
+                  <EntryForm
+                    type="Education"
+                    entries={field.value}
+                    onChange={field.onChange}
+                  />
+                )}
+              />
+              {errors.education && (
+                <p className="text-sm text-red-500">
+                  {errors.education.message}
+                </p>
+              )}
+            </div>
+
+            {/* 2.1.5   Experience */}
             <div className="space-y-4">
               <h3 className="text-lg font-medium">Work Experience</h3>
               <Controller
@@ -330,7 +356,7 @@ const ResumeBuilder = ({ initialContent }) => {
               )}
             </div>
 
-            {/* 2.1.5   Education */}
+            {/* 2.1.6  Projects */}
             <div className="space-y-4">
               <h3 className="text-lg font-medium">Projects</h3>
               <Controller
@@ -340,7 +366,7 @@ const ResumeBuilder = ({ initialContent }) => {
                   <EntryForm
                     type="Project"
                     entries={field.value}
-                    onChange={field.change}
+                    onChange={field.onChange}
                   />
                 )}
               />
