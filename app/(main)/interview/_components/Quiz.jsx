@@ -168,59 +168,63 @@ const Quiz = () => {
       </CardContent>
 
       {/* 3. Footer: showExplanation Button and Next/Finish button */}
-      <CardFooter className="flex justify-between">
-        {/* 3.1 If not last question, display next button else finish button*/}
-        <TooltipProvider>
-          <Tooltip>
-            {/* Use asChild inside TooltipTrigger: Ensures the button (inside <span>) acts as the trigger. */}
-            <TooltipTrigger asChild>
-              <span className="cursor-pointer">
-                {/* Wrap Button in a span because disabled buttons don't trigger hover events */}
-                <Button
-                  onClick={handleNextQuestion}
-                  disabled={!answers[currentQuestion] || savingResult}
-                  className={`transition-all active:scale-95 ${
-                    currentQuestion < quizData.length - 1
-                      ? ""
-                      : "bg-green-600 hover:bg-green-700 text-white"
-                  }`}
-                >
-                  {savingResult && (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" /> 
-                  )}
-                  {(!savingResult && currentQuestion < quizData.length - 1)
-                    ? "Next Question"
-                    : "Finish Quiz"}
-                </Button>
-              </span>
-            </TooltipTrigger>
-            {/* Only show the tooltip when answer is not selecetd
+      <CardFooter>
+        <div className="flex gap-4">
+          {/* 3.1 If not last question, display next button else finish button*/}
+          <TooltipProvider>
+            <Tooltip>
+              {/* Use asChild inside TooltipTrigger: Ensures the button (inside <span>) acts as the trigger. */}
+              <TooltipTrigger asChild>
+                <span className="cursor-pointer">
+                  {/* Wrap Button in a span because disabled buttons don't trigger hover events */}
+                  <Button
+                    onClick={handleNextQuestion}
+                    disabled={!answers[currentQuestion] || savingResult}
+                    className={`transition-all active:scale-95 ${
+                      currentQuestion < quizData.length - 1
+                        ? ""
+                        : "bg-green-600 hover:bg-green-700 text-white"
+                    }`}
+                  >
+                    {savingResult && (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    )}
+                    {!savingResult && currentQuestion < quizData.length - 1
+                      ? "Next Question"
+                      : "Finish Quiz"}
+                  </Button>
+                </span>
+              </TooltipTrigger>
+              {/* Only show the tooltip when answer is not selecetd
              and savingResult is false */}
-            {!answers[currentQuestion] && !savingResult && (
-              <TooltipContent className="font-semibold text-red-600 text-sm bg-red-100">Please select an answer</TooltipContent>
-            )}
-          </Tooltip>
-        </TooltipProvider>
-        {/* 3.2 showExplanation button will be enabled only when you have selected any option */}
-        {!showExplanation && (
-          <Button
-            onClick={() => setShowExplanation(true)}
-            variant="outline"
-            disabled={!answers[currentQuestion]}
-            className="cursor-pointer ml-auto"
-          >
-            Show Explanation
-          </Button>
-        )}
-        {showExplanation && (
-          <Button
-            onClick={() => setShowExplanation(false)}
-            variant="outline"
-            className="cursor-pointer ml-auto"
-          >
-            Hide Explanation
-          </Button>
-        )}
+              {!answers[currentQuestion] && !savingResult && (
+                <TooltipContent className="font-semibold text-red-600 text-sm bg-red-100">
+                  Please select an answer
+                </TooltipContent>
+              )}
+            </Tooltip>
+          </TooltipProvider>
+          {/* 3.2 showExplanation button will be enabled only when you have selected any option */}
+          {!showExplanation && (
+            <Button
+              onClick={() => setShowExplanation(true)}
+              variant="outline"
+              disabled={!answers[currentQuestion]}
+              className="cursor-pointer ml-auto"
+            >
+              Show Explanation
+            </Button>
+          )}
+          {showExplanation && (
+            <Button
+              onClick={() => setShowExplanation(false)}
+              variant="outline"
+              className="cursor-pointer ml-auto"
+            >
+              Hide Explanation
+            </Button>
+          )}
+        </div>
       </CardFooter>
     </Card>
   );

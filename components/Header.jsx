@@ -20,7 +20,7 @@ import {
 } from "lucide-react"; // luicide-react is avaialable in shadcn
 import { checkUser } from "@/lib/checkUser";
 
-const Header = async() => {
+const Header = async () => {
   await checkUser(); /* Everytime, when we land on our application, we check if the user is 
   stored in the db and return it else create it then return the created one*/
   return (
@@ -28,18 +28,20 @@ const Header = async() => {
       {/* removed container from nav */}
       <nav className="mx-5 py-2 h-16 flex items-center justify-between">
         {/* 1. logo */}
-        <div className="flex">
-          <Image
-            src="/logo.png"
-            alt="Career Orbit AI logo"
-            width={200}
-            height={30}
-            className="h-20 py-1 w-auto object-contain"
-          />
-          <div className="self-center px-3 text-sm font-bold md:text-lg lg:text-xl xl:text-2xl shade-logo">
-            <p>Career Orbit AI</p>
+        <Link href="/">
+          <div className="flex">
+            <Image
+              src="/logo.png"
+              alt="Career Orbit AI logo"
+              width={200}
+              height={30}
+              className="h-20 py-1 w-auto object-contain"
+            />
+            <div className="self-center px-3 text-sm font-bold md:text-lg lg:text-xl xl:text-2xl shade-logo">
+              <p>Career Orbit AI</p>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/*2. Displayed only for the signed in user */}
         <div className="flex items-center space-x-2 md:space-x-4 ">
