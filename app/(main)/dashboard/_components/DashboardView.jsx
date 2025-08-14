@@ -66,10 +66,10 @@ const DashboardView = ({ insights }) => {
 
   // Format dates using date-fns
   const lastUpdatedDate = format(new Date(insights.lastUpdated), "dd/MM/yyyy");
-  const nextUpdateDistance = formatDistanceToNow(
-    new Date(insights.nextUpdate),
-    { addSuffix: true }
-  );
+  // const nextUpdateDistance = formatDistanceToNow(
+  //   new Date(insights.nextUpdate),
+  //   // { addSuffix: true }
+  // );
 
   return (
     <div className="space-y-6">
@@ -90,9 +90,9 @@ const DashboardView = ({ insights }) => {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{insights.marketOutlook}</div>
-            <p className="text-xs text-muted-foreground">
+            {/* <p className="text-xs text-muted-foreground">
               Next update {nextUpdateDistance}
-            </p>
+            </p> */}
           </CardContent>
         </Card>
         {/* 2.2 Industry Growth-Rate info card */}

@@ -25,6 +25,35 @@ model User {
   industryInsight IndustryInsight? @relation(fields: [industry], references: [industry])
 }
 
+model IndustryInsight {
+  id                String        @id @default(cuid())
+  industry          String        @unique
+  salaryRanges      Json[]
+  growthRate        Float
+  demandLevel       DemandLevel
+  topSkills         String[]
+  marketOutlook     MarketOutlook
+  keyTrends         String[]
+  recommendedSkills String[]
+  lastUpdated       DateTime      @default(now())
+  nextUpdate        DateTime
+  users             User[]
+
+  @@index([industry])
+}
+
+enum DemandLevel {
+  High
+  Medium
+  Low
+}
+
+enum MarketOutlook {
+  Positive
+  Neutral
+  Negative
+}
+
 model Assessment {
   id             String   @id @default(cuid())
   userId         String
@@ -63,33 +92,4 @@ model CoverLetter {
   user           User     @relation(fields: [userId], references: [id])
 
   @@index([userId])
-}
-
-model IndustryInsight {
-  id                String        @id @default(cuid())
-  industry          String        @unique
-  salaryRanges      Json[]
-  growthRate        Float
-  demandLevel       DemandLevel
-  topSkills         String[]
-  marketOutlook     MarketOutlook
-  keyTrends         String[]
-  recommendedSkills String[]
-  lastUpdated       DateTime      @default(now())
-  nextUpdate        DateTime
-  users             User[]
-
-  @@index([industry])
-}
-
-enum DemandLevel {
-  High
-  Medium
-  Low
-}
-
-enum MarketOutlook {
-  Positive
-  Neutral
-  Negative
 }

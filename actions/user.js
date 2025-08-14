@@ -1,5 +1,5 @@
 // In newer Next.js version, API's are in separate folder called "actions"
-// actions contain server functioms i.e. functions runs on server
+// actions contain server functions i.e. functions runs on server
 
 "use server"; // server functions runs on server and in server components
 

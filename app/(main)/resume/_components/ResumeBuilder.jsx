@@ -182,7 +182,7 @@ const ResumeBuilder = ({ initialContent }) => {
                 Save
               </>
             )}
-          </Button>
+         </Button>
           {/* Download as PDF button */}
           <Button onClick={generatePDF} disabled={isGenerating}>
             {isGenerating ? (
@@ -196,7 +196,7 @@ const ResumeBuilder = ({ initialContent }) => {
                 Download PDF
               </>
             )}
-          </Button>
+          </Button> 
         </div>
       </div>
 
