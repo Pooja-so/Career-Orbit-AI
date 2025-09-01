@@ -1,4 +1,4 @@
-#Live URL: https://career-orbit-ai-ulcy.vercel.app/
+
 # 🚀 AI-Powered Career Upskilling Platform  
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)  
@@ -10,8 +10,9 @@
 [![Gemini AI](https://img.shields.io/badge/AI-Gemini%20API-red)](https://ai.google.dev/)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)  
 
-An AI-driven platform designed to help users **upskill their careers** with smart tools like a resume builder, AI-powered mock interviews, and real-time industry insights.  
-
+An AI-driven platform designed to help users **upskill their careers** with smart tools like a resume builder, AI-powered mock interviews, and real-time industry insights. 
+---
+## Live Demo: https://career-orbit-ai-ulcy.vercel.app/
 ---
 
 ## ✨ Features  
@@ -52,4 +53,40 @@ An AI-driven platform designed to help users **upskill their careers** with smar
 ```bash
 git clone https://github.com/your-username/ai-upskilling-platform.git
 cd ai-upskilling-platform
+```
+
+### 2. Setup environment variables  
+- Create a .env file in the root directory:
+```bash
+DATABASE_URL=postgresql://user:password@localhost:5432/yourdb
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+CLERK_SECRET_KEY=your_clerk_secret
+GEMINI_API_KEY=your_gemini_api_key
+INNGEST_API_KEY=your_inngest_key
+```
+
+### 3.Run database migration
+```bash
+npx prisma migrate dev
+```
+
+### 4. Start the development server
+```bash
+npm run dev
+```
+
+## 📂 Project Structure  
+```bash
+.
+├── app/         # Next.js App Router
+├── components/  # Reusable UI components (Shadcn UI)
+├── prisma/      # Prisma schema & migrations
+├── inngest/     # Inngest event handlers
+├── lib/         # Utility functions
+├── public/      # Static assets
+└── README.md
+```
+
+
+
 
