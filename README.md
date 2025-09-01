@@ -10,7 +10,7 @@
 [![Gemini AI](https://img.shields.io/badge/AI-Gemini%20API-red)](https://ai.google.dev/)  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)  
 
-An AI-driven platform designed to help users **upskill their careers** with smart tools like a resume builder, AI-powered mock interviews, and real-time industry insights. 
+- An AI-driven platform designed to help users **upskill their careers** with smart tools like a resume builder, AI-powered mock interviews, and real-time industry insights. 
 ---
 ## Live Demo: https://career-orbit-ai-ulcy.vercel.app/
 ---
