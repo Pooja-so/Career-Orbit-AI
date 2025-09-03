@@ -1,14 +1,20 @@
 
 # 🚀 AI-Powered Career Upskilling Platform  
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)  
-[![Shadcn UI](https://img.shields.io/badge/UI-Shadcn%20UI-blue)](https://ui.shadcn.com/)  
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue?logo=postgresql)](https://www.postgresql.org/)  
-[![Prisma](https://img.shields.io/badge/ORM-Prisma-2D3748?logo=prisma)](https://www.prisma.io/)  
-[![Inngest](https://img.shields.io/badge/Automation-Inngest-orange)](https://www.inngest.com/)  
-[![Clerk](https://img.shields.io/badge/Auth-Clerk-purple)](https://clerk.com/)  
-[![Gemini AI](https://img.shields.io/badge/AI-Gemini%20API-red)](https://ai.google.dev/)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)  
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/) 
+&nbsp;
+[![Gemini AI](https://img.shields.io/badge/AI-Gemini%20API-red)](https://ai.google.dev/) 
+&nbsp;
+[![Shadcn UI](https://img.shields.io/badge/UI-Shadcn%20UI-blue)](https://ui.shadcn.com/) 
+&nbsp;
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue?logo=postgresql)](https://www.postgresql.org/) 
+&nbsp;
+[![Prisma](https://img.shields.io/badge/ORM-Prisma-2D3748?logo=prisma)](https://www.prisma.io/) 
+&nbsp;
+[![Inngest](https://img.shields.io/badge/Automation-Inngest-orange)](https://www.inngest.com/) 
+&nbsp;
+[![Clerk](https://img.shields.io/badge/Auth-Clerk-purple)](https://clerk.com/) 
+
 
 - An AI-driven platform designed to help users **upskill their careers** with smart tools like a resume builder, AI-powered mock interviews, and real-time industry insights. 
 ---
